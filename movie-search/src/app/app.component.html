@@ -8,3 +8,28 @@
 </div> 
 
 <div>
+
+
+<div *ngIf='report && report.Title !== ""'>
+ <label>Title : {{ report.Title }} </label> 
+</div>
+
+
+<div *ngIf='report && report.Year !== ""'>
+  <label>Year : {{ report.Year }}</label> 
+ </div>
+
+
+<div *ngIf='report && report.Released !== ""'>
+  <label>Released On : {{ report.Released }} </label>
+ </div>
+
+ <div *ngIf='report && report.BoxOffice !== ""'>
+  <label>BoxOffice: {{ report.BoxOffice }}  </label> 
+ </div>
+
+ <div *ngIf='report && report.imdbRating !== ""'>
+  <label>Imdb Rating: {{ report.imdbRating }}  </label> 
+ </div>
+
+</div>

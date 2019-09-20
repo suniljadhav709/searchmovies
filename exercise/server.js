@@ -20,9 +20,7 @@ app.get('/title/:title',function (request, res) {
     superagent.get('http://www.omdbapi.com')
     .query({ apikey: '386a5cc3', t: title })
     .end((err, resData) => {
-        console.log(resData.body);
-        console.log(err);
-
+      
         if (err) { return res.json(err);  }
         
         return res.json(resData.body); 
