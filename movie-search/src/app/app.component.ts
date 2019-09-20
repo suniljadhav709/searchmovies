@@ -12,4 +12,9 @@ export class AppComponent {
   report;
 
   constructor(private weatherSrv: WeatherServiceService) { }
+  submit() {
+    this.weatherSrv.getWeatherReportByCode(this.code).subscribe( data => {
+      this.report = data;
+    })
+  }
 }
