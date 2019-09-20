@@ -13,8 +13,12 @@ export class AppComponent {
 
   constructor(private weatherSrv: WeatherServiceService) { }
   submit() {
-    this.weatherSrv.getWeatherReportByCode(this.code).subscribe( data => {
-      this.report = data;
-    })
+    if(this.code != '') {
+      this.weatherSrv.getWeatherReportByCode(this.code).subscribe( data => {
+        this.report = data;
+      })
+    } else {
+      alert('title can not be empty');
+    }
   }
 }
