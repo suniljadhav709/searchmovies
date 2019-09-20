@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-
+const superagent = require('superagent');
 
 var app = express();
 
@@ -17,7 +17,16 @@ app.use(function(req, res, next) {
 app.get('/title/:title',function (request, res) {
     var title = request.params.title;
     console.log('Title : ' + title);
-    res.json(data);    
+    superagent.get('http://www.omdbapi.com')
+    .query({ apikey: '386a5cc3', t: title })
+    .end((err, resData) => {
+        console.log(resData.body);
+        console.log(err);
+
+        if (err) { return res.json(err);  }
+        
+        return res.json(resData.body); 
+    });
     
 })
 app.listen(3000, function() {
